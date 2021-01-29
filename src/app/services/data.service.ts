@@ -8,10 +8,17 @@ export interface Message {
   read: boolean;
 }
 
+/**
+ * Services for manage messages
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  
+  /**
+   * List of the messages
+   */
   public messages: Message[] = [
     {
       fromName: 'Matt Chorsey',
@@ -71,12 +78,30 @@ export class DataService {
     }
   ];
 
+
+  /**
+   * @ignore
+   */
   constructor() { }
 
+  /**
+   * Get all the messages
+   * @example
+   * You have called the getMessages () method to obtain the list of messages
+   * @returns Returns the list of messages
+   */
   public getMessages(): Message[] {
     return this.messages;
   }
 
+  /**
+   * Get the message that corresponds to the id
+   * @example
+   * You only have to send a number that corresponds to an id and the related message will be returned,
+   * getMessageById(1)
+   * @param {number} id Id of message 
+   * @returns Returns the message related to the id sent
+   */
   public getMessageById(id: number): Message {
     return this.messages[id];
   }
